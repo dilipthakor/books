@@ -12,6 +12,6 @@ class Book(models.Model):
     date_reviewed = models.DateTimeField(blank=True, null=True)
     is_favorite = models.BooleanField(default=False,verbose_name="Favourite?")
     
-    
     def __str__(self):
         return self.title
+    
