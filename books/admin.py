@@ -7,24 +7,24 @@ from .models import Author, Book
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     fieldset = [
-        ("Book Details",{"fields": ["title","author"]}),
-        ("Review",{"fields": ["is_favourite","review","date_reviewed"]})
+        ("Book Details", {"fields": ["title", "author"]}),
+        ("Review",{"fields": ["is_favorite", "review", "date_reviewed"]}),
     ]
     
-    readonly_fields = ("date_reviewed")
+    readonly_fields = ["date_reviewed",]
     
     def book_authors(self,obj):
         return obj.list_authors()
     
     book_authors.short_description = "Author(s)"
     
-    list_display = ("title","date_reviewed","is_favourite",)
+    list_display = ("title","date_reviewed","is_favorite",)
     list_editable = ("is_favorite",)
     list_display_links = ("title","date_reviewed",)
-    list_filter = ("is_favourite",)
+    list_filter = ("is_favorite",)
     search_fields = ("title","authors_name",)
 
 # Register your models here.
-admin.site.register(Book)
+admin.site.register(Author)
 
 
